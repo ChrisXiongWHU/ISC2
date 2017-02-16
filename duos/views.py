@@ -57,12 +57,14 @@ def auth_pre(request,api_hostname):
     # request.session['iKey'] = iKey
     # print 'In session iKey : %s' %(request.session['iKey'])
     # print 'In session sig_dict iKey : %s' %(request.session['sig_dict']['content'][1])
+    
+    #获取远方用户IP
+    ip = getIp(request)
+    print ip
+    request.session['ip'] = ip
 
     if user is not None:
-        authUrl = reverse('duos:auth',args=(api_hostname,))
-        #获取远方用户IP
-        ip = getIp(request)
-        request.session['ip'] = ip
+        authUrl = reverse('duos:auth',args=(api_hostname,))  
         return redirect(authUrl)
     else:
         enrollUrl = reverse('duos:enroll',args=(api_hostname,))
