@@ -1,0 +1,11 @@
+<h1>Enroll<h1>
+
+<form action="{% url 'duos:enroll' api_hostname %}"
+method="post">
+{% csrf_token %}
+<p>
+Please enter your phone number: &nbsp
+<input type="text" name="phone"><br/>
+<input type="submit">
+</p>
+

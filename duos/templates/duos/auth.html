@@ -1,0 +1,10 @@
+<h1>Auth<h1>
+
+<form action="{% url 'duos:auth' api_hostname %}"
+method="post">
+<!--{% csrf_token %} -->
+<p>
+Please enter the code
+<input type="text" name="code"><br/>
+<input type="submit">
+</p>
