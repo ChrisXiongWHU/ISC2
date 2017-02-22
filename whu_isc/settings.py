@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -122,4 +123,22 @@ STATIC_URL = '/static/'
 
 # DEBUG = False
 
+
 # ALLOWED_HOSTS = '*'
+
+
+
+CHCHES = {
+    'default': {
+        'BACKEND':
+        'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION':'unique-snowflake',
+    }
+}
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "whu_isc.routing.channel_routing",
+    },
+}

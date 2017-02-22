@@ -40,7 +40,6 @@ def parseDuoSig(sig):
     if len(s) != 3:
         raise DuoFormatException()
     userName,iKey,expiretime = s
-    print 'inParseDuoSig %s' %(iKey)
     ret =  {
         'prefix':prefix,
         'content':s,

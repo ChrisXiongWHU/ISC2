@@ -57,11 +57,9 @@ def _parse_vals(key, val, prefix, ikey):
 
     sig = _hmac_sha1(e_key, e_cookie)
     if _hmac_sha1(e_key, sig.encode('utf-8')) != _hmac_sha1(e_key, u_sig.encode('utf-8')):
-        print 's false'
         return None
 
     if u_prefix != prefix:
-        print 'prefix false'
         return None
 
     decoded = base64.b64decode(u_b64).decode('utf-8')
@@ -69,7 +67,6 @@ def _parse_vals(key, val, prefix, ikey):
     print user,u_ikey,exp
 
     if u_ikey != ikey:
-        print 'ikey false'
         return None
 
     if ts >= int(exp):
